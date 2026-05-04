@@ -13,8 +13,8 @@ noremap <C-s> :w<Enter>
 noremap <C-q> :tabclose<CR>
 noremap <S-Tab> :tabnext<CR>
 noremap <Tab> <C-w>w
-noremap <C-`> :call OpenTerminal('cmd', v:true)<CR>
-noremap <F2> :call OpenTerminal('cmd', v:true)<CR>
+noremap <C-`> :call OpenTerminal('bash', v:true)<CR>
+noremap <F2> :call OpenTerminal('bash', v:true)<CR>
 noremap <F5> :call OpenTerminal(&makeprg, v:false)<CR>
 
 noremap <Up> :echo "Use k"<CR>
@@ -72,10 +72,14 @@ call plug#begin()
     Plug 'bfrg/vim-cpp-modern'
     " Plug 'vim-scripts/Windows-PowerShell-Syntax-Plugin'
     Plug 'puremourning/vimspector'
-    " Plug 'vim-perl/vim-perl', { 'for': 'perl' }
+    Plug 'vim-perl/vim-perl', { 'for': 'perl' }
+    Plug 'gcmt/taboo.vim'
 call plug#end()
 
 colorscheme onedark
+
+let g:taboo_tab_format = " %N %f %m "
+let g:taboo_modified_tab_flag = '+'
 
 let g:Makeprg = ''
 
@@ -111,7 +115,29 @@ endfunction
 autocmd BufNewFile,BufRead * call s:makeprg()
 autocmd VimEnter,TabNew * :NERDTree | :wincmd H | :vertical resize 32 | :wincmd w
 "autocmd User OmniSharpReady,OmniSharpProjectUpdated :OmniSharpHighlight
-"autocmd BufReadPost *.cs :echo "hello"
+
+if executable('perlnavigator')
+    let $PERL5LIB = getcwd()
+
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'perlnavigator',
+        \ 'cmd': ['perlnavigator', '--stdio'],
+        \ 'env': {
+        \     'PERL5LIB': getcwd() . '/lib'
+        \ },
+        \ 'allowlist': ['perl'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+endfunction
+
+augroup lsp_install
+    autocmd!
+
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
 autocmd QuitPre * call <sid>TermForceCloseAll()
 function! s:TermForceCloseAll() abort
@@ -245,4 +271,4 @@ let g:vimsence_file_explorer_text = 'In NERDTree'
 let g:vimsence_file_explorer_details = 'Looking for files'
 " let g:vimsence_custom_icons = {}
 
-let g:clang_library_path='C:\Program Files\LLVM\bin\libclang.dll'
+" let g:clang_library_path='C:\Program Files\LLVM\bin\libclang.dll'

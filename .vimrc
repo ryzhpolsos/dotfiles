@@ -37,6 +37,7 @@ set completepopup=highlight:Pmenu,border:off
 set textwidth=0
 
 set backup
+set backupcopy=yes
 set backupdir=~/vimfiles/backup//
 set directory=~/vimfiles/swap//
 set undodir=~/vimfiles/undo//
@@ -271,4 +272,4 @@ let g:vimsence_file_explorer_text = 'In NERDTree'
 let g:vimsence_file_explorer_details = 'Looking for files'
 " let g:vimsence_custom_icons = {}
 
-" let g:clang_library_path='C:\Program Files\LLVM\bin\libclang.dll'
+let g:clang_library_path='/usr/lib64/libclang.so'

@@ -13,9 +13,9 @@ noremap <C-s> :w<Enter>
 noremap <C-q> :tabclose<CR>
 noremap <S-Tab> :tabnext<CR>
 noremap <Tab> <C-w>w
-noremap <C-`> :call OpenTerminal('bash', v:true)<CR>
-noremap <F2> :call OpenTerminal('bash', v:true)<CR>
-noremap <F5> :call OpenTerminal(&makeprg, v:false)<CR>
+noremap <C-`> :call OpenTerminal(expand("$SHELL"))<CR>
+noremap <F2> :call OpenTerminal(expand("$SHELL"))<CR>
+noremap <F5> :call OpenTerminal(&makeprg)<CR>
 
 noremap <Up> :echo "Use k"<CR>
 noremap <Down> :echo "Use j"<CR>
@@ -36,11 +36,19 @@ set completeopt=menuone,noinsert,noselect,popuphidden
 set completepopup=highlight:Pmenu,border:off
 set textwidth=0
 
+for dir in ["~/.vim/backup", "~/.vim/swap", "~/.vim/undo"]
+    let dir = expand(dir)
+
+    if !isdirectory(dir)
+        call mkdir(dir)
+    endif
+endfor
+
 set backup
 set backupcopy=yes
-set backupdir=~/vimfiles/backup//
-set directory=~/vimfiles/swap//
-set undodir=~/vimfiles/undo//
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 let g:OmniSharp_highlighting = 3
 
@@ -106,9 +114,8 @@ function! s:makeprg()
     endif
 endfunction
 
-function! OpenTerminal(termcmd, autoClose)
-    let l:cmd = a:autoClose ? a:termcmd : "cmd /c " . a:termcmd . " & pause>nul"
-    execute "horizontal terminal ++close ++kill=hup" l:cmd
+function! OpenTerminal(termcmd)
+    execute "horizontal terminal ++close ++kill=hup" a:termcmd
     wincmd J
     resize 12
 endfunction
@@ -273,3 +280,10 @@ let g:vimsence_file_explorer_details = 'Looking for files'
 " let g:vimsence_custom_icons = {}
 
 let g:clang_library_path='/usr/lib64/libclang.so'
+
+let trusted_dirs = readfile(expand('~/.vim/trusted.txt'))
+let local_vimrc = getcwd() . '/.vimrc'
+
+if filereadable(local_vimrc) && ($TRUSTED || index(trusted_dirs, getcwd()) >= 0)
+    execute 'source' local_vimrc
+endif

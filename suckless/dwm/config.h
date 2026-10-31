@@ -71,12 +71,18 @@ static const char *incvolcmd[] = { "/home/ryzh/suckless/dwm/scripts/changevolume
 static const char *decvolcmd[] = { "/home/ryzh/suckless/dwm/scripts/changevolume.sh", "-5", NULL };
 static const char *muteappcmd[] = { "/home/ryzh/suckless/dwm/scripts/muteapp.sh", NULL };
 static const char *muteallcmd[] = { "/home/ryzh/suckless/dwm/scripts/muteall.sh", NULL };
+static const char *lockcmd[] = { "slock", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_e,      spawn,          {.v = dmenucmd } },
     { MODKEY,                       XK_v,      spawn,          {.v = clipmenucmd} },
     { MODKEY|ShiftMask,             XK_t,      spawn,          {.v = termcmd} },
+    { MODKEY,                       XK_Up,     spawn,          {.v = incvolcmd} },
+    { MODKEY,                       XK_Down,   spawn,          {.v = decvolcmd} },
+    { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = muteappcmd} },
+    { MODKEY|ControlMask,           XK_m,      spawn,          {.v = muteallcmd} },
+    { MODKEY,                       XK_l,      spawn,          {.v = lockcmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -98,10 +104,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { MODKEY,                       XK_Up,     spawn,          {.v = incvolcmd} },
-    { MODKEY,                       XK_Down,   spawn,          {.v = decvolcmd} },
-    { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = muteappcmd} },
-    { MODKEY|ControlMask,           XK_m,      spawn,          {.v = muteallcmd} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -133,6 +135,7 @@ static const Button buttons[] = {
 
 static const char *const autostart[] = {
     "/home/ryzh/suckless/dwm/scripts/bar.sh", NULL,
+    "clipmenud", NULL,
 	"kitty", NULL,
     "brave", NULL,
     "/opt/Throne/Throne", NULL,

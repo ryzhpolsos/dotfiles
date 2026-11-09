@@ -1,0 +1,57 @@
+[SavedDialogHistory/ExtrDestPath]
+Lines=/home/ryzh/folder/ithub/cicd-first-run/
+Locks=0
+Position=-1
+Times=8021b8ca3062dd01
+
+[SavedDialogHistory/NewFolder]
+Lines="workflows\n.github"
+Locks=00
+Position=-1
+Times=00ba87233162dd01 00d9911d3162dd01
+
+[SavedDialogHistory/Copy]
+Lines="/home/ryzh/dotfiles/.config/\nmeowbooru.old\n/home/ryzh/projects/\nimage.png\n/\n/home/ryzh/projects/wawa/wawagame/bin/\n/home/ryzh/.config/far2l/settings/\n/home/ryzh/.config/far2l\n/home/ryzh/.local/share/Steam/steamapps/common/Half-Life/"
+Locks=000000000
+Position=-1
+Times=807c02134470dd01 00e6d4fdd66ddd01 80af16d7d66ddd01 0009efd7246ddd01 00c32bb4246ddd01 0023068e246ddd01 00b765c67568dd01 00eb39d07268dd01 802050916665dd01
+
+[SavedDialogHistory/ExternalEditor]
+Lines="vim "!.!"\nvim !&\nvim &!\nvim !\nvim "%1"\nvim"
+Locks=000000
+Position=-1
+Times=009e1fdf7068dd01 0075022c6f68dd01 80ef4c1e6f68dd01 804a34b46e68dd01 80d483a36e68dd01 80b835956e68dd01
+
+[SavedDialogHistory]
+HistoryCount=512
+
+[SavedDialogHistory/NetRocks_History_Host]
+Lines="qwer\nryzh.pl"
+Locks=00
+Position=-1
+Times=8065d46b1e69dd01 80e6458c7068dd01
+
+[SavedDialogHistory/NetRocks_History_User]
+Lines=root
+Locks=0
+Position=-1
+Times=80e6458c7068dd01
+
+[SavedDialogHistory/NetRocks_History_Dir]
+Lines=/
+Locks=0
+Position=-1
+Times=80e6458c7068dd01
+
+[SavedDialogHistory/FilterName]
+Lines="Special for skip highlight\nText files\nSource\nHidden files\nVideo\nTemporary\nArchives\nModel\nImage\nShared\nSystem\nParent dir\nHidden dirs\nDirs\nExecutable files\nSocket\nFIFO (pipe)\nBlock device\nSymlinks to files\nSymlinks to dirs\nBroken (stale symlinks)"
+Locks=000000000000000000000
+Position=-1
+Times=00132c527768dd01 00a0372d7768dd01 0046d52a7768dd01 0065df247768dd01 008a61f67668dd01 80e5a1ee7668dd01 8031dde97668dd01 00e77fe47668dd01 80c953e07668dd01 009e00d57668dd01 0090d9cd7668dd01 8072adc97668dd01 00afe3c77668dd01 80eb19c67668dd01 80565fbb7668dd01 00a478ac7668dd01 009651a57668dd01 00e28ca07668dd01 0020a1947668dd01 80c71c887668dd01 000453867668dd01
+
+[SavedDialogHistory/FilterMasks]
+Lines="*\n<doc>\n<src>\n<video>\n<temp>\n<arc>\n<3d>\n<pic>\n<shared>\n..\n*|.."
+Locks=00000000000
+Position=-1
+Times=00132c527768dd01 00a0372d7768dd01 0046d52a7768dd01 008a61f67668dd01 80e5a1ee7668dd01 8031dde97668dd01 00e77fe47668dd01 80c953e07668dd01 009e00d57668dd01 8072adc97668dd01 80eb19c67668dd01
+

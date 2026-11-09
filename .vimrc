@@ -33,7 +33,7 @@ set completepopup=highlight:Pmenu,border:off
 set textwidth=0
 set nofoldenable
 
-for dir in ["~/.vim/backup", "~/.vim/swap", "~/.vim/undo"]
+for dir in ['~/.vim/backup', '~/.vim/swap', '~/.vim/undo']
     let dir = expand(dir)
 
     if !isdirectory(dir)
@@ -48,35 +48,52 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
 call plug#begin()
-    Plug 'preservim/nerdtree'
-    Plug 'OmniSharp/omnisharp-vim'
-    Plug 'dense-analysis/ale'
-    Plug 'joshdick/onedark.vim'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'itchyny/lightline.vim'
-    Plug 'maximbaz/lightline-ale'
-    Plug 'pangloss/vim-javascript'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'quramy/tsuquyomi'
-    Plug 'kelwin/vim-smali'
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-    Plug 'tpope/vim-commentary'
-    Plug 'Vimjas/vim-python-pep8-indent'
-    Plug 'davidhalter/jedi-vim'
-    Plug 'Raimondi/delimitMate'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'alvan/vim-closetag'
-    Plug 'pprovost/vim-ps1'
-    Plug 'xavierd/clang_complete'
-    Plug 'bfrg/vim-cpp-modern'
-    Plug 'puremourning/vimspector'
-    Plug 'vim-perl/vim-perl', { 'for': 'perl' }
-    Plug 'gcmt/taboo.vim'
-    Plug 'preservim/tagbar'
-    Plug 'godlygeek/tabular'
-    Plug 'preservim/vim-markdown'
+    " Base plugins {
+        Plug 'prabirshrestha/async.vim'
+        Plug 'prabirshrestha/vim-lsp'
+        Plug 'prabirshrestha/asyncomplete.vim'
+        Plug 'prabirshrestha/asyncomplete-lsp.vim'
+        Plug 'dense-analysis/ale'
+    " }
+
+    " Bars, tabs, etc {
+        Plug 'itchyny/lightline.vim'
+        Plug 'maximbaz/lightline-ale'
+        Plug 'halkn/lightline-lsp'
+        Plug 'preservim/nerdtree'
+        Plug 'gcmt/taboo.vim'
+        Plug 'preservim/tagbar'
+        Plug 'godlygeek/tabular'
+    " }
+    
+    " Autocomplete, format, etc {
+        Plug 'ctrlpvim/ctrlp.vim'
+        Plug 'alvan/vim-closetag'
+        Plug 'Raimondi/delimitMate'
+        Plug 'tpope/vim-commentary'
+    " }
+
+    " Language support {
+        Plug 'OmniSharp/omnisharp-vim'
+        Plug 'pangloss/vim-javascript'
+        Plug 'leafgarland/typescript-vim'
+        Plug 'quramy/tsuquyomi'
+        Plug 'davidhalter/jedi-vim'
+        Plug 'Vimjas/vim-python-pep8-indent'
+        Plug 'vim-perl/vim-perl', { 'for': 'perl' }
+        Plug 'preservim/vim-markdown'
+        Plug 'kelwin/vim-smali'
+        Plug 'pprovost/vim-ps1'
+        Plug 'bfrg/vim-cpp-modern'
+    " }
+    
+    " Appearance {
+        Plug 'joshdick/onedark.vim'
+    " }
+
+    " Debug {
+        Plug 'puremourning/vimspector'
+    " }
 call plug#end()
 
 colorscheme onedark
@@ -105,7 +122,7 @@ function! s:makeprg()
 endfunction
 
 function! OpenTerminal(termcmd)
-    execute "horizontal terminal ++close ++kill=hup" a:termcmd
+    execute 'horizontal terminal ++close ++kill=hup' a:termcmd
     wincmd J
     resize 12
 endfunction
@@ -116,15 +133,21 @@ autocmd VimEnter,TabNew * :NERDTree | :wincmd H | :vertical resize 32 | :wincmd 
 autocmd BufRead *.md setlocal conceallevel=2
 
 if executable('perlnavigator')
-    let $PERL5LIB = getcwd()
-
     autocmd User lsp_setup call lsp#register_server({
-    \     'name': 'perlnavigator',
-    \     'cmd': ['perlnavigator', '--stdio'],
-    \     'env': {
-    \         'PERL5LIB': getcwd() . '/lib'
-    \     },
-    \     'allowlist': ['perl'],
+    \   'name': 'perlnavigator',
+    \   'cmd': ['perlnavigator', '--stdio'],
+    \   'env': {
+    \       'PERL5LIB': getcwd() . '/lib'
+    \   },
+    \   'allowlist': ['perl'],
+    \ })
+endif
+
+if executable('clangd')
+    autocmd User lsp_setup call lsp#register_server({
+    \   'name': 'clangd',
+    \   'cmd': ['clangd'],
+    \   'allowlist': ['c']
     \ })
 endif
 
@@ -142,7 +165,7 @@ autocmd QuitPre * call <sid>TermForceCloseAll()
 function! s:TermForceCloseAll() abort
     let term_bufs = filter(range(1, bufnr('$')), 'getbufvar(v:val, "&buftype") == "terminal"')
     for t in term_bufs
-        execute "bd! " t
+        execute 'bd! ' t
     endfor
 endfunction
 
@@ -159,10 +182,10 @@ augroup END
 
 augroup OmniSharpIntegrations
     autocmd!
-    autocmd User OmniSharpProjectUpdated,OmniSharpReady call lightline#update() | :OmniSharpHighlight
+    autocmd User OmniSharpProjectUpdated,OmniSharpReady call lightline#update()
 augroup END
 
-let s:using_snippets=0
+let s:using_snippets = 0
 
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
@@ -171,14 +194,14 @@ let g:ale_sign_style_error = '·'
 let g:ale_sign_style_warning = '·'
 
 let g:ale_linters = {
-\     'cs': ['OmniSharp'],
-\     'python': ['all'],
-\     'c': ['gcc']
+\   'cs': ['OmniSharp'],
+\   'python': ['all'],
+\   'c': ['clangd']
 \ }
 
 let g:ale_fixers = {
-\     'python': ['isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace'],
-\     'c': []
+\   'python': ['isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace'],
+\   'c': ['clangd']
 \ }
 
 let g:asyncomplete_auto_popup = 1
@@ -191,33 +214,40 @@ let g:taboo_tab_format = " %N %f %m "
 let g:taboo_modified_tab_flag = '+'
 
 let g:vim_markdown_conceal=1 
+" \         ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
 
 let g:lightline = {
-\     'colorscheme': 'onedark',
-\     'active': {
-\         'right': [
-\             ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok'],
-\             ['lineinfo'], ['percent'],
-\             ['fileformat', 'fileencoding', 'filetype', 'sharpenup']
-\         ]
-\     },
-\     'inactive': {
-\         'right': [['lineinfo'], ['percent'], ['sharpenup']]
-\     },
-\     'component_expand': {
-\         'linter_checking': 'lightline#ale#checking',
-\         'linter_infos': 'lightline#ale#infos',
-\         'linter_warnings': 'lightline#ale#warnings',
-\         'linter_errors': 'lightline#ale#errors',
-\         'linter_ok': 'lightline#ale#ok'
-\     },
-\     'component_type': {
-\         'linter_checking': 'right',
-\         'linter_infos': 'right',
-\         'linter_warnings': 'warning',
-\         'linter_errors': 'error',
-\         'linter_ok': 'right'
-\     }
+\   'colorscheme': 'onedark',
+\   'active': {
+\       'right': [
+\         ['lsp_errors', 'lsp_warnings', 'lsp_ok'],
+\         ['lineinfo'], ['percent'],
+\         ['fileformat', 'fileencoding', 'filetype']
+\       ]
+\   },
+\   'inactive': {
+\       'right': []
+\   },
+\   'component_expand': {
+\       'linter_checking': 'lightline#ale#checking',
+\       'linter_infos': 'lightline#ale#infos',
+\       'linter_warnings': 'lightline#ale#warnings',
+\       'linter_errors': 'lightline#ale#errors',
+\       'linter_ok': 'lightline#ale#ok',
+\       'lsp_warnings': 'lightline_lsp#warnings',
+\       'lsp_errors': 'lightline_lsp#errors',
+\       'lsp_ok': 'lightline_lsp#ok'
+\   },
+\   'component_type': {
+\       'linter_checking': 'right',
+\       'linter_infos': 'right',
+\       'linter_warnings': 'warning',
+\       'linter_errors': 'error',
+\       'linter_ok': 'right',
+\       'lsp_warnings': 'warning',
+\       'lsp_errors': 'error',
+\       'lsp_ok': 'right'
+\   }
 \ }
 
 let g:lightline#ale#indicator_checking = "\uf110 "
@@ -229,18 +259,18 @@ let g:lightline#ale#indicator_ok = "\uf00c "
 let g:OmniSharp_popup_position = 'peek'
 
 let g:OmniSharp_popup_options = {
-\     'highlight': 'Normal',
-\     'padding': [0],
-\     'border': [1],
-\     'borderchars': ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
-\     'borderhighlight': ['ModeMsg']
+\   'highlight': 'Normal',
+\   'padding': [0],
+\   'border': [1],
+\   'borderchars': ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+\   'borderhighlight': ['ModeMsg']
 \ }
 
 let g:OmniSharp_popup_mappings = {
-\     'sigNext': '<C-n>',
-\     'sigPrev': '<C-p>',
-\     'pageDown': ['<C-f>', '<PageDown>'],
-\     'pageUp': ['<C-b>', '<PageUp>']
+\   'sigNext': '<C-n>',
+\   'sigPrev': '<C-p>',
+\   'pageDown': ['<C-f>', '<PageDown>'],
+\   'pageUp': ['<C-b>', '<PageUp>']
 \ }
 
 if s:using_snippets
@@ -248,10 +278,10 @@ if s:using_snippets
 endif
 
 let g:OmniSharp_highlight_groups = {
-\     'ExcludedCode': 'NonText'
+\   'ExcludedCode': 'NonText'
 \ }
 
-let g:clang_library_path='/usr/lib64/libclang.so'
+call system('touch ~/.vim/trusted.txt')
 
 let trusted_dirs = readfile(expand('~/.vim/trusted.txt'))
 let local_vimrc = getcwd() . '/.vimrc'
@@ -259,3 +289,5 @@ let local_vimrc = getcwd() . '/.vimrc'
 if filereadable(local_vimrc) && ($TRUSTED || index(trusted_dirs, getcwd()) >= 0)
     execute 'source' local_vimrc
 endif
+
+command Trust call system('echo $PWD >> ~/.vim/trusted.txt')

@@ -1,0 +1,132 @@
+
+🔥🔥🔥 far2l 2.9.1-2026-10-27-1bd345fe9-beta x64
+Signal 06 [000003E800004CA2] on 000000006AEC7D0A
+00007F6DE9305880 000000000000002D 0000000000000000 0000000000000246
+00007F6DE8E0F840 00007F6DE63F8468 000000000000007D 000000003BA0ABA0
+0000000000004CA2 0000000000004CA2 00000000FFFFFFF1 0000000000000006
+0000000000000006 0000000000000000 00007F6DE8CA25A5 00007FFC1D6CB610
+00007F6DE8CA25A5 0000000000000246 002B000000000033 0000000000000000
+0000000000000000 0000000000004000 0000000000000000 00007FFC1D6CB240
+00007F6DE94976B0 00007F6DE9497A50 00007FFC1D6CB2C0 000000000F11ED7D
+00007F6DE94FABF5 0000000000000005 00007F6DE93089D8 0000000000000005
+ 👉 RAW BACKTRACE 
+00000000006034EE
+00007F6DE8C44E70
+00007F6DE8CA25A5
+00007F6DE8C44D82
+00007F6DE8C29089
+00007F6DE90AEAA4
+00007F6DE90C115A
+00007F6DE90AE62E
+00007F6DE63DC5DD
+00007F6DE8C473AE
+00007F6DE8C4749A
+00000000006727BB
+00000000006727F3
+00007F6DE8C44E70
+000000000047D3D7
+00000000004861E4
+ 👉 SYMBOLICATED BACKTRACE 
+00: far2l +0x2034ee
+01: /lib64/libc.so.6 +0x044e70
+02: /lib64/libc.so.6 +0x0a25a5 	<__GI___pthread_kill +0x105>
+03: /lib64/libc.so.6 +0x044d82 	<__GI_raise +0x12>
+04: /lib64/libc.so.6 +0x029089 	<__GI_abort +0x12>
+05: /usr/lib64/libstdc++.so.6 +0x0aeaa4
+06: /usr/lib64/libstdc++.so.6 +0x0c115a
+07: /usr/lib64/libstdc++.so.6 +0x0ae62e 	<_ZSt10unexpectedv +0x0>
+08: /usr/local/lib/far2l/Plugins/gitgutter/plug/gitgutter.far-plug-wide +0x0075dd
+09: /lib64/libc.so.6 +0x0473ae 	<__run_exit_handlers +0x1de>
+10: /lib64/libc.so.6 +0x04749a
+11: far2l +0x2727bb
+12: far2l +0x2727f3
+13: /lib64/libc.so.6 +0x044e70
+14: far2l +0x07d3d7
+15: far2l +0x0861e4
+ 👉 SYMBOLICATED STACK PAGE 
+009: far2l +0x2034ee
+00a: /lib64/libc.so.6 +0x044e70
+00b: /lib64/libc.so.6 +0x0a25a5 	<__GI___pthread_kill +0x105>
+00c: /lib64/libc.so.6 +0x044d82 	<__GI_raise +0x12>
+00d: /lib64/libc.so.6 +0x029089 	<__GI_abort +0x12>
+00e: /usr/lib64/libstdc++.so.6 +0x0aeaa4
+00f: /usr/lib64/libstdc++.so.6 +0x0c115a
+010: /usr/lib64/libstdc++.so.6 +0x0ae62e 	<_ZSt10unexpectedv +0x0>
+011: /usr/local/lib/far2l/Plugins/gitgutter/plug/gitgutter.far-plug-wide +0x0075dd
+012: /lib64/libc.so.6 +0x0473ae 	<__run_exit_handlers +0x1de>
+013: /lib64/libc.so.6 +0x04749a
+014: far2l +0x2727bb
+ 👉 INPUT BACKTRACE 
+74716 KEY_DOWN: vkc=8 vsc=14 ctl=0x8 wc=0 ncs e la LC sh ra rc VK_BACK '?'
+75277 KEY_UP: vkc=220 vsc=43 ctl=0x8 wc=92 ncs e la LC sh ra rc VK_OEM_5 '\'
+75334 KEY_DOWN: vkc=220 vsc=43 ctl=0x8 wc=92 ncs e la LC sh ra rc VK_OEM_5 '\'
+75562 KEY_DOWN: vkc=17 vsc=29 ctl=0x8 wc=0 ncs e la LC sh ra rc VK_CONTROL '?'
+76640 KEY_UP: vkc=9 vsc=15 ctl=0x0 wc=0 ncs e la lc sh ra rc VK_TAB '?'
+76840 KEY_DOWN: vkc=9 vsc=15 ctl=0x0 wc=0 ncs e la lc sh ra rc VK_TAB '?'
+76964 KEY_UP: vkc=9 vsc=15 ctl=0x0 wc=0 ncs e la lc sh ra rc VK_TAB '?'
+77164 KEY_DOWN: vkc=9 vsc=15 ctl=0x0 wc=0 ncs e la lc sh ra rc VK_TAB '?'
+77395 KEY_UP: vkc=16 vsc=42 ctl=0x0 wc=0 ncs e la lc sh ra rc VK_SHIFT '?'
+77634 KEY_UP: vkc=9 vsc=15 ctl=0x10 wc=0 ncs e la lc SH ra rc VK_TAB '?'
+77808 KEY_DOWN: vkc=9 vsc=15 ctl=0x10 wc=0 ncs e la lc SH ra rc VK_TAB '?'
+78074 KEY_UP: vkc=9 vsc=15 ctl=0x10 wc=0 ncs e la lc SH ra rc VK_TAB '?'
+78270 KEY_DOWN: vkc=9 vsc=15 ctl=0x10 wc=0 ncs e la lc SH ra rc VK_TAB '?'
+78396 KEY_DOWN: vkc=16 vsc=42 ctl=0x10 wc=0 ncs e la lc SH ra rc VK_SHIFT '?'
+78882 KEY_UP: vkc=17 vsc=29 ctl=0x0 wc=0 ncs e la lc sh ra rc VK_CONTROL '?'
+79213 FOCUS: set
+80095 FOCUS: unset
+80237 KEY_DOWN: vkc=17 vsc=29 ctl=0x8 wc=0 ncs e la LC sh ra rc VK_CONTROL '?'
+ 👉 STDERR TRACE 
+?" UP, 0 11 0 1d
+ConsoleInput::Enqueue: ncs e LA lc sh ra rc VK_MENU "?" DOWN, 2 12 0 38
+ConsoleInput::Enqueue: ncs E LA lc sh ra rc VK_DOWN "?" DOWN, 102 28 0 50
+ConsoleInput::Enqueue: ncs E LA lc sh ra rc VK_DOWN "?" UP, 102 28 0 50
+ConsoleInput::Enqueue: ncs E LA lc sh ra rc VK_DOWN "?" UP, 102 28 0 50
+ConsoleInput::Enqueue: ncs E LA lc sh ra rc VK_UP "?" DOWN, 102 26 0 48
+ConsoleInput::Enqueue: ncs E LA lc sh ra rc VK_UP "?" UP, 102 26 0 48
+ConsoleInput::Enqueue: ncs E LA lc sh ra rc VK_UP "?" UP, 102 26 0 48
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_MENU "?" UP, 0 12 0 38
+ConsoleInput::Enqueue: ncs e la lc SH ra rc VK_SHIFT "?" DOWN, 10 10 0 2a
+ConsoleInput::Enqueue: ncs E la lc SH ra rc VK_UP "?" DOWN, 110 26 0 48
+ConsoleInput::Enqueue: ncs E la lc SH ra rc VK_UP "?" UP, 110 26 0 48
+ConsoleInput::Enqueue: ncs E la lc SH ra rc VK_UP "?" UP, 110 26 0 48
+ConsoleInput::Enqueue: ncs E la lc SH ra rc VK_DOWN "?" DOWN, 110 28 0 50
+ConsoleInput::Enqueue: ncs E la lc SH ra rc VK_DOWN "?" UP, 110 28 0 50
+ConsoleInput::Enqueue: ncs E la lc SH ra rc VK_DOWN "?" UP, 110 28 0 50
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_SHIFT "?" UP, 0 10 0 2a
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_LWIN "?" DOWN, 0 5b 0 5b
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_LWIN "?" UP, 0 5b 0 5b
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_OEM_3 "`" DOWN, 0 c0 60 29
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" DOWN, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_OEM_3 "`" UP, 0 c0 60 29
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" UP, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" DOWN, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" UP, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" DOWN, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" UP, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" DOWN, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" UP, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" DOWN, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_ESCAPE "?" UP, 0 1b 0 1
+ConsoleInput::Enqueue: ncs e la LC sh ra rc VK_CONTROL "?" DOWN, 8 11 0 1d
+ConsoleInput::Enqueue: ncs e la LC sh ra rc VK_Q "q" DOWN, 8 51 71 10
+ConsoleInput::Enqueue: ncs e la LC sh ra rc VK_Q "q" UP, 8 51 71 10
+ConsoleInput::Enqueue: ncs e la LC SH ra rc VK_SHIFT "?" DOWN, 18 10 0 2a
+OnFocusChange: 0
+ReaderLoop: stdin read failed <25>
+~TTYRawMode - tcsetattr: Input/output error
+ReaderThread: raw mode discarded
+TTYCaps: GENERIC EmojiVS16 X11  pos={8, 3} restrict={}
+OnCursorShape: 1
+TTYInputSequenceParser: using Kitty extension
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_RETURN "?" UP, 0 d 0 1c
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_RETURN "?" DOWN, 0 d 0 1c
+ConsoleInput::Enqueue: ncs e la lc sh ra rc VK_RETURN "?" UP, 0 d 0 1c
+ConsoleInput::Enqueue: ncs e la LC sh ra rc VK_CONTROL "?" DOWN, 8 11 0 1d
+ConsoleInput::Enqueue: ncs e la LC SH ra rc VK_SHIFT "?" DOWN, 18 10 0 2a
+OnFocusChange: 0
+ReaderLoop: stdin read failed <25>
+~TTYRawMode - tcsetattr: Input/output error
+ReaderThread: raw mode discarded
+DetachTTY
+terminate called without an active exception
+[2026/11/05 15:56] 272@sSigaction: see /home/ryzh/.config/far2l/crash.log
